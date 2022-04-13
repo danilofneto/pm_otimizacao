@@ -45,6 +45,7 @@ Análise univariada e bivaria dos dados para identificarmos padrões nos dados. 
 ![image](/images/bj_000.jpg)
 
 [ay_006] Valores altos indicam tanto falha quanto não.
+
 ![image](/images/ay_006.jpg)
 
 **03. Feature Engineering:**
