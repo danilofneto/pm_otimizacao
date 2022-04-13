@@ -2,7 +2,7 @@
 
 A empresa All-In Trucks conta uma frota média de caminhões para realizar entregas por todo país, porém nos últimos 3 anos vem percebendo um grande aumento nos gastos referentes à manutenção do sistema de ar de seus veículos, mesmo mantendo o tamanho de sua frota constante. O custo com manutenção deste sistema específico é mostrado abaixo em dólar:
 
-![custo](images/custo.JPG)
+![custo](images/custo.jpg)
 
 # 1. Business Problem
 
@@ -27,7 +27,7 @@ Arquivo com 16000 linhas e 171 colunas.
 
 **01. Data Description:**
 O dataset inicial conta com 60000 linas e 171 colunas, algumas colunas com mais de 80% dos dados faltando.
-![image](images/missing_percentage.JPG)
+![image](images/missing_percentage.jpg)
 
 Para tratar os dados faltantes eu eliminei as colunas com mais de 60% de dados faltantes e nas demais eu preenchi usando a média dos demais valores da coluna.
 
@@ -35,17 +35,17 @@ mesmo após eliminarmos algumas colunas, nosso dataset ainda tinha muita informa
 
 **02. Análise exploratória dos dados:**
 Análise univariada e bivaria dos dados para identificarmos padrões nos dados. Nesta etapa conseguimos identificar que a maior das features possuiam um grande número de valores correspondentes a nenhuma falha, exceto a feature [cn_000].
-![image](/images/cn_000.JPG)
+![image](/images/cn_000.jpg)
 
 [ay_005]: A maioria dos valores que indicam nenhuma falha são próximos de zero. Nesta feature, os valores mais altos consistem em ambas as classes.
-![image](/images/ay_005.JPG)
+![image](/images/ay_005.jpg)
 
 [bj_000]: O valor mais alto indica falha. A maioria dos valores não indica falha.
 
-![image](/images/bj_000.JPG)
+![image](/images/bj_000.jpg)
 
 [ay_006] Valores altos indicam tanto falha quanto não.
-![image](/images/ay_006.JPG)
+![image](/images/ay_006.jpg)
 
 **03. Feature Engineering:**
 A primeira ideia de feature engineering era reduzir a dimensionadidade do dataframe usando a Análise de componentes principais(PCA) porém tive algumas dificuldades na hora de aplicar a mesma redução nos dados de avaliação, portanto para o primeiro ciclo do projeto decidi ir somente com as 20 variáveis mais relevantes para o modelo.
@@ -64,16 +64,16 @@ A métrica usada para avaliar o modelo foi a Macro-F1:
 A macro F1 leva em consideração as pontuações da F1 de cada classe.
  A ideia é a métrica nos mostrar o desempenho do nosso modelo com base no número de pontos classificados corretamente para ambas as classes.
   Isso é útil porque o custo da classificação incorreta é muito alto, pois uma falha no sistema de ar que não é detectada pode levar à falha do caminhão durante a operação e aumentar o custo da manutenção.
-  ![image](/images/macro_f1.JPG)
+  ![image](/images/macro_f1.jpg)
   Fonte: <https://medium.com/@ramit.singh.pahwa/micro-macro-precision-recall-and-f-score-44439de1a044>
 
 A variável target(class) estava altamente desbalanceada e foram gerados dados sintéticos usando a técnica de SMOTE equilibrando as classes para uma melhor generalização dos modelos de Machine Learning
 
-![image](/images/SMOTE.JPG)
+![image](/images/SMOTE.jpg)
 
 O modelo escolhido foi o XGBoost pois ele obteve um bom valor de Macro-F1 após a validação cruzada.
 
-![image](/images/cv.JPG)
+![image](/images/cv.jpg)
 
 ** 05. Convertendo o desempenho do modelo em valores de negócios
 
@@ -81,11 +81,11 @@ Custo total: 10 * Falsos positivos(não apresentou defeitos) + $500 * Falsos neg
 
 Nos dados pré 2020 o nosso modelo reduziu o custo de manutenção para $12580, identificando 358 falsos negativos e 18 falsos positivos.
 
-![image](/images/confusion_matrix.JPG)
+![image](/images/confusion_matrix.jpg)
 
 e nos dados de 2020 ele reduziu o custo de manutenção para 6820 identificando 232 casos de falso positivo e 9 de falso negativo.
 
-![image](/images/confusion_matrix_2020.JPG)
+![image](/images/confusion_matrix_2020.jpg)
 
 # 04. Próximos passos:
 
