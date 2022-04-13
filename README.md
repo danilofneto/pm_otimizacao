@@ -27,6 +27,7 @@ Arquivo com 16000 linhas e 171 colunas.
 
 **01. Data Description:**
 O dataset inicial conta com 60000 linas e 171 colunas, algumas colunas com mais de 80% dos dados faltando.
+
 ![image](images/missing_percentage.jpg)
 
 Para tratar os dados faltantes eu eliminei as colunas com mais de 60% de dados faltantes e nas demais eu preenchi usando a média dos demais valores da coluna.
@@ -35,9 +36,11 @@ mesmo após eliminarmos algumas colunas, nosso dataset ainda tinha muita informa
 
 **02. Análise exploratória dos dados:**
 Análise univariada e bivaria dos dados para identificarmos padrões nos dados. Nesta etapa conseguimos identificar que a maior das features possuiam um grande número de valores correspondentes a nenhuma falha, exceto a feature [cn_000].
+
 ![image](/images/cn_000.jpg)
 
 [ay_005]: A maioria dos valores que indicam nenhuma falha são próximos de zero. Nesta feature, os valores mais altos consistem em ambas as classes.
+
 ![image](/images/ay_005.jpg)
 
 [bj_000]: O valor mais alto indica falha. A maioria dos valores não indica falha.
